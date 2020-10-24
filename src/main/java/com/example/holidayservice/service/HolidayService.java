@@ -68,11 +68,7 @@ public class HolidayService {
       final var country2Holidays = reduceHolidayCollection(date, holidays2);
       final var holiday = matchFirstHolidayInBothCollections(country1Holidays, country2Holidays);
       if (holiday.isPresent()) {
-        return Optional.of(HolidayResponseDto.builder()
-            .nextHolidayDate(holiday.get().getNextHolidayDate())
-            .holidayName1(holiday.get().getHolidayName1())
-            .holidayName2(holiday.get().getHolidayName2())
-            .build());
+        return holiday;
       }
       year++;
     }
